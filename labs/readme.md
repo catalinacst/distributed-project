@@ -22,6 +22,8 @@ you will get something like :
 >Every 1.0s: lsof -i -n |grep python                                                                                                  arth3missec: Wed Feb  6 19:16:12 2019
 
 >python3  5336 c1b3r    3u  IPv4 6843386      0t0  TCP 127.0.0.1:46954->127.0.0.1:3030 (ESTABLISHED)
+
 >python3 30390 c1b3r    3u  IPv4 6811170      0t0  TCP *:3030 (LISTEN)
+
 >python3 30390 c1b3r   15u  IPv4 6811171      0t0  TCP 127.0.0.1:3030->127.0.0.1:46954 (ESTABLISHED)
 
