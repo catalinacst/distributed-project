@@ -32,18 +32,19 @@ emails = '{}hfjimenez@utp.edu.co{}'.format(white, reset)
 topic = '{}{}\n\tDistributed Systems 2018-2{}'.format(
     uline, white, reset)
 
-
 def cleanscreen():
     subprocess.call(['clear'], shell=False)
 
 
 def banners():
-    print("""{}        
-             __                          
-            / _\ ___ _ ____   _____ _ __ 
-            \ \ / _ \ '__\ \ / / _ \ '__|
-            _\ \  __/ |   \ V /  __/ |   
-            \__/\___|_|    \_/ \___|_|   
+    print("""
+        {}        
+             _________                                
+            /   _____/ ______________  __ ___________ 
+            \_____  \_/ __ \_  __ \  \/ // __ \_  __ \\
+            /        \  ___/|  | \/\   /\  ___/|  | \/
+            /_______  /\___  >__|    \_/  \___  >__|   
+                    \/     \/                 \/       
             {}{}Final Project Distributed Systems
             UTP-2018-2, 2019{}                            
             """.format(cyan, white, bold, reset))

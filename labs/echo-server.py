@@ -30,3 +30,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if not data:
                 break
             conn.sendall(data)
+            # sendall will ensure that all the message is sent, 
+            # without matters the data lenght.
