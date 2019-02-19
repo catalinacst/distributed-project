@@ -83,19 +83,22 @@ def cmd_handler(message):
         roomarg = cmd.split(' ')[1]
         roomlist.append(roomarg)
         print(roomlist)
-        emit('commands',{'msg': roomarg +' chat room was created'})
+        emit('commands', {'msg': roomarg + ' chat room was created'})
 
     elif cmd.split(' ')[0] == "#dR":
         roomarg = cmd.split(' ')[1]
         if not (roomarg == 'public' or roomarg == 'publico'):
-            if roomarg in roomlist :
-                emit('commands',{'msg': roomarg +' was deleted from the chan list'})
+            if roomarg in roomlist:
+                emit('commands', {'msg': roomarg +
+                                  ' was deleted from the chan list'})
                 roomlist.remove(roomarg)
-            else : 
-                emit('commands',{'msg': roomarg +' Unable to delete the channel, it doesn\' exist'})
-        else :
+            else:
+                emit('commands', {
+                     'msg': roomarg + ' Unable to delete the channel, it doesn\' exist'})
+        else:
             print(roomlist)
-            emit('commands',{'msg': roomarg +' Impossible to delete default channel'})
+            emit('commands', {'msg': roomarg +
+                              ' Impossible to delete default channel'})
     else:
         emit('status', {
              'msg': 'Invalid command, use  #help to get more information.'})
