@@ -74,7 +74,7 @@ def cmd_handler(message):
     elif cmd == "#help":
         emit('help', {'msg': available_commands})
     elif cmd == "#Cr":
-        
+        pass
     else : 
         emit('status',{'msg':'Comando Invalido, Revisa tu sintaxis, #help para mas ayuda'})
 
