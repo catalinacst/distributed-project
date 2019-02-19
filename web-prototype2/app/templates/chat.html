@@ -50,7 +50,7 @@
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
                 });
 
-                socket.on('help', function(data){                    
+                socket.on('help', function(data){           
                 $('#chat').val($('#chat').val() + ':::COMANDOS:::'+'\n');
                 for (let key in data.msg) {
                     if (data.msg.hasOwnProperty(key)) {
@@ -76,7 +76,7 @@
                             $('#text').val('');
                             socket.emit('text', {msg: text});
                         }
-                    console.log('Continue') 
+                    console.log('Continue')
                     }
                 });
             });
@@ -89,7 +89,7 @@
             }
         </script>
     </head>
-    <body>
+    <body onload="callUpdate()">
         <nav>
             <div class="nav-wrapper grey darken-1">
                 <a href="#" class="brand-logo">Chat - Distributed Systems 2019</a>
@@ -104,18 +104,18 @@
             <div class="col s12 m4 l3">
                 <div style="overflow: auto;">
                     <div class="card-panel blue-grey lighten-4">
-                        <table class="highlight">
+                        <table id="table_channel" class="highlight">
                             <thead>
                                 <tr>
                                     <th>Channels</th>
                                 </tr>
                             </thead>
                             <tbody id="list_rooms">
-                                {% for channel in roomlist %}
+                                <!--{% for channel in roomlist %}-->
                                 <tr>
-                                    <td>{{ channel }}</td>
+                                    <td> <!--{{ channel }} --></td>
                                 </tr>
-                                {% endfor %}
+                                <!--{% endfor %} -->
                             </tbody>
                         </table>
                     </div>
@@ -147,7 +147,62 @@
                         <input id="text" type="text" placeholder="Write here...">
                     </div>
                 </div>
-            </div>
+            </div>          
         </div>
+        <script>
+            function updateChannel(id){
+                socket.emit('aviso');
+                socket.on('aviso', function(data) {
+                    var roomlista = data.msg;
+                    console.log(roomlista);
+                    var i = 1;
+                    for (var room in roomlista){
+                        // Controlando que json realmente tenga esa propiedad
+                        if (roomlista.hasOwnProperty(room)) {
+                            // Mostrando en pantalla la clave junto a su valor
+                            console.log("La clave es " + room + " y el valor es " + roomlista[room]);
+                            var myTable = document.getElementById(id);
+                            var row = myTable.insertRow(i);
+                            var cells = row.insertCell(0);
+                            myTable.rows[i].cells[0].innerHTML = roomlista[room];
+                            i = i + 1;
+                        }
+                    }                    
+                });
+            }
+            function callUpdate(){
+                updateChannel('table_channel');
+                setTimeout("callUpdate()",9000);
+            }
+
+            /*
+
+
+                var i = 1;
+                // Obteniendo todas las claves del JSON
+                    for (var room in dates){
+                      // Controlando que json realmente tenga esa propiedad
+                      if (dates.hasOwnProperty(room)) {
+                        // Mostrando en pantalla la clave junto a su valor
+                        console.log("La clave es " + room + " y el valor es " + dates[room]);
+                        var myTable = document.getElementById('table_channel');
+                        myTable.rows[i].cells[0].innerHTML = dates[room];
+                        i = i + 1;
+                      }
+                    }
+
+
+            <body onload="llamarHora()">
+                <div id='reloj'></div>
+            </body>            
+            function hora(id){
+                var fecha = new Date();
+                document.getElementById(id).innerHTML = fecha;
+                }
+            function llamarHora(){
+                hora('reloj');
+                setTimeout("llamarHora()",1000);
+            }*/           
+        </script>
     </body>
 </html>

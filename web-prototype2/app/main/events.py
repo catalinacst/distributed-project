@@ -28,6 +28,12 @@ def text(message):
                      ':' + message['msg']}, room=room)
 
 
+@socketio.on('aviso', namespace='/chat')
+def text():
+    """Sent by a client when the user entered a new message.
+    The message is sent to all people in the room."""
+    emit('aviso', {'msg': roomlist})
+
 @socketio.on('left', namespace='/chat')
 def left(message):
     """Sent by clients when they leave a room.
