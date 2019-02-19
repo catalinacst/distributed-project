@@ -43,7 +43,7 @@ def cmd_handler(message):
         "#Cr" : "Crear Sala con el nombre de la Sala.", 
         "#gR" : "Entrar a una Sala especifica.", 
         "#eR" : "Salir de la sala, estando en default no hace nada.", 
-        "#IR" : "Lista los nombre de todas las sales disponibles y numero de participantes.",
+        "#lR" : "Lista los nombre de todas las sales disponibles y numero de participantes.",
         "#dR" : "Eliminar la sala nombreSala, solo se puede eliminar la sala si se es dueño.", 
         "#show users" : "Muestra el lista de usuarios en el chat.", 
         "#\private" : "Envia mensaje privado a otra persona.", 
