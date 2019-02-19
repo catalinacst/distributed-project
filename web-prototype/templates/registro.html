@@ -1,0 +1,60 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Sistemas Distribuidos 2018">
+    <title>Socket IO Chat, DS2018-2</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.3/examples/sign-in/signin.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+    <!-- SocketIO implementation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    </head>
+        <body class="text-center">
+        <form class="form-signin" action="/registro" method="post">
+            <img class="mb-4" src="http://static1.squarespace.com/static/5b3ae7399772aec4debe114f/t/5b4e3d6df950b79e8219c98f/1531854191365/Atom_New_Logo_AtomOnly.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Chat App:Registro</h1>
+            <label class="sr-only">Nombre</label>
+            <input name="inputName" class="form-control" placeholder="Nombres" required autofocus>         
+
+            <label class="sr-only">Apellidos</label>
+            <input name="inputLastname" class="form-control" placeholder="Apellidos" required>
+
+            <label class="sr-only">Usuario</label>
+            <input name="inputUser" class="form-control" placeholder="Edad" required>
+
+            <label class="sr-only">Edad</label>
+            <input name="inputAge" class="form-control" placeholder="Username" required>
+
+            <label for="inputPassword" class="sr-only">Clave</label>
+            <input type="password" name="inputPass" class="form-control" placeholder="Password" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id='ingresar'>Registrarse</button>
+            <p class="mt-5 mb-3 text-muted">Universidad Tecnologica de Pereira<br>Sistemas Distribuidos<br> 2018-2019</p>
+        </form>
+           
+        </script>
+    </body>
+</html>
