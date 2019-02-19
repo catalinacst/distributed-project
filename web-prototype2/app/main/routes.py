@@ -6,6 +6,7 @@ from flask_wtf import FlaskForm as BaseForm
 roomlist = []
 user_list = []
 
+roomlist.append('publico')      # we create the default room
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -34,7 +35,7 @@ def index():
 
         form.name.data = session.get('name', '')
         form.room.data = session.get('room', '')
-    return render_template('index.html', form=form, lista=roomlist)
+    return render_template('login.html', form=form, lista=roomlist)
 
 
 @main.route('/registrar', methods=['GET', 'POST'])
