@@ -1,93 +1,18 @@
-
 Usuario: None  Sala: None 
+Usuario: h3ct0rjs  Sala: asd 
+Usuario: h3ct0rjs  Sala: asd 
+Usuario: H3T0R  Sala: ASDLKSDJFKLJASDFKLJASDFLKJASDF 
+Usuario: H3T0R  Sala: ASDLKSDJFKLJASDFKLJASDFLKJASDF 
+Usuario: Algo  Sala: 133123123 
+Usuario: andres  Sala: jlksajdslkfjdklfjdsklfjdslkfdsklfjl 
+Usuario: asd  Sala: asd 
+Usuario: asd  Sala: asd 
+Usuario: andres  Sala: jlksajdslkfjdklfjdsklfjdslkfdsklfjl 
+Usuario: Algo  Sala: 133123123 
 Usuario: None  Sala: None 
-Usuario: andres  Sala: x 
+Usuario: asdasd  Sala: asd 
 Usuario: None  Sala: None 
-Usuario: meliiiilove  Sala: enamorados 
+Usuario: algo  Sala: 123123 
+Usuario: algo  Sala: 123123 
 Usuario: None  Sala: None 
-Usuario: h3ct0rjs  Sala: enamorados 
-Usuario: None  Sala: None 
-Usuario: kjklj  Sala:  lkj 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: h  Sala: hello 
-Usuario: None  Sala: None 
-Usuario: prueba  Sala: prueba 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: h3ct0r  Sala: 12 
-Usuario: None  Sala: None 
-Usuario: Juan  Sala: 12 
-Usuario: None  Sala: None 
-Usuario: andres  Sala: juegos-room 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: firefox  Sala: juegos 
-Usuario: None  Sala: None 
-Usuario: x  Sala: juegos-room 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: Algo  Sala: juegos1 
-Usuario: None  Sala: None 
-Usuario: andres  Sala: juegos1 
-Usuario: None  Sala: None 
-Usuario: nick  Sala: x 
-Usuario: None  Sala: None 
-Usuario: hector  Sala: canal 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: hector  Sala: sexgames 
-Usuario: None  Sala: None 
-Usuario: hector  Sala: asdasd 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: algo  Sala: default 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario:   Sala: casa 
-Usuario:   Sala: casa 
-Usuario:   Sala: 123123 
-Usuario:   Sala: lsadkjfksaldjflksd 
-Usuario:   Sala: lsadkjfksaldjflksd 
-Usuario:   Sala: 123213 
-Usuario:   Sala: 123213 
-Usuario:   Sala: asd 
-Usuario:   Sala: asd 
-Usuario:   Sala: 123123 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: hector  Sala: asdasd 
-Usuario: None  Sala: None 
-Usuario:   Sala: asdasds 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: asd  Sala: asdasd 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: nick  Sala: nick 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: h3ct0rjs  Sala: publico 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: h3ct0r  Sala:  
-Usuario: None  Sala: None 
-Usuario: h3ct0r  Sala:  
-Usuario: h3ct0rjs  Sala:  
-Usuario: h3ct0rjs  Sala:  
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: h3ct0rjs  Sala: hola 
-Usuario: h3ct0rjs  Sala: asds 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
-Usuario: None  Sala: None 
+Usuario: algo  Sala: 1323213 

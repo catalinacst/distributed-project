@@ -7,10 +7,14 @@ from wtforms.validators import Required, DataRequired, EqualTo
 class LoginForm(FlaskForm):
     """Accepts a nickname and a room."""
     name = StringField('', validators=[Required()])
-    username = StringField('', validators=[Required()])
-    password = StringField('', validators=[Required()])
+    #username = StringField('', validators=[Required()])
+    #password = StringField('', validators=[Required()])
     room = StringField('')
     submit = SubmitField('')
+
+class LoginForm_exp(FlaskForm):
+    username = StringField('username')
+    password = PasswordField('password')
 
 
 class RegistrationForm(FlaskForm):
