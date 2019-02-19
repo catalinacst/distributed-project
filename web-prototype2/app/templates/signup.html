@@ -22,41 +22,41 @@
     <br>
     <br>
     <div class="row">
-        <form action="#"> <!--  Nombres, apellidos, login, password, edad, género. -->
+        <form action="/registrar" method="POST"> <!--  Nombres, apellidos, login, password, edad, género. -->
             <div class="row">
                 <div class="offset-s2 col s4">
                     <div class="input-field">
-                        <input id="first_name" type="text" class="validate">
+                        <input id="first_name" type="text" class="validate" name="first_name">
                         <label for="first_name">First Name</label>
                     </div>
                 </div>
                 <div class="col s4">
                     <div class="input-field">
-                        <input id="last_name" type="text" class="validate">
+                        <input id="last_name" type="text" class="validate" name="last_name">
                         <label for="last_name">Last Name</label>
                     </div>
                 </div>
                 <div class="offset-s2 col s4">
                     <div class="input-field">
-                        <input id="user" type="text" class="validate">
+                        <input id="user" type="text" class="validate" name="username">
                         <label for="user">Username</label>
                     </div>
                 </div>
                 <div class="col s4">
                     <div class="input-field">
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" class="validate" name="password">
                         <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="offset-s2 col s4">
                     <div class="input-field">
-                        <input id="age" type="number" class="validate">
+                        <input id="age" type="number" class="validate" name="age">
                         <label for="age">Age</label>
                     </div>
                 </div>
                 <div class="col s4">
                     <div class="input-field">
-                        <input id="gender" type="text" class="validate">
+                        <input id="gender" type="text" class="validate" name="gender">
                         <label for="gender">Gender</label>
                     </div>
                 </div>

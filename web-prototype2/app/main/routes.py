@@ -1,6 +1,7 @@
-from flask import session, redirect, url_for, render_template, request
+from flask import session, redirect, url_for, render_template, request, jsonify
+import sqlite3
 from . import main
-from .forms import LoginForm
+from .forms import LoginForm, RegistrationForm
 from flask_wtf import FlaskForm as BaseForm
 roomlist = []
 user_list = []
@@ -38,22 +39,37 @@ def index():
 
 @main.route('/registrar', methods=['GET', 'POST'])
 def registrar():
-    form = LoginForm()
-    if form.validate_on_submit():
-        if not (roomlist):
-            roomlist.append(form.room.data)
-        else:
-            if(verificar(form.room.data)):
-                print("ya esta")
-            else:
-                roomlist.append(form.room.data)
-        session['name'] = form.name.data
-        session['room'] = form.room.data
-        return redirect(url_for('.chat'))
-    elif request.method == 'GET':
-        form.name.data = session.get('name', '')
-        form.room.data = session.get('room', '')
-    return render_template('registrar.html', form=form, lista=roomlist)
+    form = RegistrationForm()
+    if request.method == 'GET':
+        return render_template('signup.html', form=form)
+    elif request.method == 'POST':
+        print('Datos From Formulario:::')
+        try:
+            first_name = form.first_name.data
+            lastname = form.last_name.data
+            username = form.username.data
+            password = form.password.data
+            age = form.age.data
+            gender = form.gender.data
+
+            print('{}{}{}{}{}{}'.format(first_name,
+                                        lastname, username, password, age, gender))
+            with sqlite3.connect("database.db") as conn:
+                cur = conn.cursor()
+                sql = "INSERT INTO Users (name,lastname,username,age,password,gender) VALUES(?,?,?,?,?,?)"
+                cur.execute(sql, (first_name, lastname,
+                                  username,age, password, gender))
+                conn.commit()
+                result = '[Ok] Registro agregado a la base de datos'
+                print(result)
+        except sqlite3.Error as e:
+            print("Database connection error: {}".format(e))
+            conn.rollback()
+            result = "There was an error when trying to save to database: {}".format(
+                e)
+            print(result)
+        finally:
+            return render_template('results.html', result=result)
 
 
 @main.route('/ingresar', methods=['GET', 'POST'])
