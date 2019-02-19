@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Chat</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper grey darken-1">
+            <a href="#" class="brand-logo">Welcome to Chat</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div class="row">
+        <form action="/registro" method="POST"> <!--  Nombres, apellidos, login, password, edad, género. -->
+            <div class="row">
+                <div class="offset-s2 col s4">
+                    <div class="input-field">
+                        <input id="first_name" type="text" class="validate" name="first_name">
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="input-field">
+                        <input id="last_name" type="text" class="validate" name="last_name">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="offset-s2 col s4">
+                    <div class="input-field">
+                        <input id="user" type="text" class="validate" name="username">
+                        <label for="user">Username</label>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="input-field">
+                        <input id="password" type="password" class="validate" name="password">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="offset-s2 col s4">
+                    <div class="input-field">
+                        <input id="age" type="number" class="validate" name="age">
+                        <label for="age">Age</label>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="input-field">
+                        <input id="gender" type="text" class="validate" name="gender">
+                        <label for="gender">Gender</label>
+                    </div>
+                </div>
+            </div>
+            <button class="offset-s9 col s1 btn waves-effect waves-light" type="submit" name="action">Sign Up
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

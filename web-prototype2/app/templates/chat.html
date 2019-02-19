@@ -2,6 +2,7 @@
     <head>
         <title>Chat SocketIO {{ room }}</title>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+        
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
         <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
@@ -9,6 +10,7 @@
         <!-- LO NUEVO -->
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer.css' ) }}" >
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Icons -->
@@ -28,13 +30,13 @@
                 });
                 
                 socket.on('show_users', function(data) {
-                    $('#chat').val($('#chat').val() + 'Online : [' + data.msg + ']\n');
+                    $('#chat').val($('#chat').val() + 'Online >>: ' + data.msg + '\n');
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
                 });
 
                 socket.on('show_channels', function(data) {
                     console.log(data)
-                    $('#chat').val($('#chat').val() + 'Canales Disponible : [' + data.msg + ']\n');
+                    $('#chat').val($('#chat').val() + 'Canales Disponibles>> : ' + data.msg + '\n');
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
                 });
 
@@ -42,6 +44,12 @@
                     $('#chat').val($('#chat').val() + data.msg + '\n');
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
                 });
+
+                socket.on('commands', function(data) {
+                    $('#chat').val($('#chat').val() + data.msg + '\n');
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                });
+
                 socket.on('help', function(data){                    
                 $('#chat').val($('#chat').val() + ':::COMANDOS:::'+'\n');
                 for (let key in data.msg) {
@@ -60,10 +68,9 @@
                     var code = e.keyCode || e.which;
                     if (code == 13) {
                         text = $('#text').val().trim();
-                        console.log('Al ingresar datos de usuario')
                         if(text[0] === '#'){
-                            console.log('Es un comando')
                             socket.emit('cmd', {cmd:text})
+                            $('#text').val('');
                         }
                         else{
                             $('#text').val('');
@@ -85,11 +92,10 @@
     <body>
         <nav>
             <div class="nav-wrapper grey darken-1">
-                <a href="#" class="brand-logo">Chat - @cattalinacst</a>
+                <a href="#" class="brand-logo">Chat - Distributed Systems 2019</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Channels</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <!--<li><a href="#">Settings</a></li>-->
+                    <li><a href="#" onclick="leave_room();">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -101,19 +107,15 @@
                         <table class="highlight">
                             <thead>
                                 <tr>
-                                    <th>Channel</th>
+                                    <th>Channels</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="list_rooms">
+                                {% for channel in roomlist %}
                                 <tr>
-                                    <td>Games</td>
+                                    <td>{{ channel }}</td>
                                 </tr>
-                                <tr>
-                                    <td>University</td>
-                                </tr>
-                                <tr>
-                                    <td>Friends</td>
-                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -125,22 +127,18 @@
                                 <th>Users Online</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="list_users">
+                            {% for user in user_list %}
                             <tr>
-                                <td>cattalina</td>
+                                <td>{{ user }}</td>
                             </tr>
-                            <tr>
-                                <td>h3ct0rjs</td>
-                            </tr>
-                            <tr>
-                                <td>juanjo</td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="col s12 m8 l9">
-                <div class="card-panel blue-grey lighten-3">Chat with <strong>h3ct0rjs</strong></div>
+                <div class="card-panel blue-grey lighten-3">Chat in Channel <strong>{{room}}</strong></div>
                 <div style="height: 375px;">
                     <textarea id="chat" readonly="readonly" cols="80" rows="20" style="resize: none; height: 24rem;"></textarea>
                 </div>
@@ -151,6 +149,5 @@
                 </div>
             </div>
         </div>
-        <a href="#" onclick="leave_room();">Leave this room</a>
     </body>
 </html>
