@@ -25,20 +25,17 @@ def index():
                 print("ya esta")
             else:
                 roomlist.append(form.room.data)
-
         session['name'] = form.name.data
         session['room'] = form.room.data
         #session['age'] = form.age.data
         return redirect(url_for('.chat'))
 
     elif request.method == 'GET':
-
         form.name.data = session.get('name', '')
         form.room.data = session.get('room', '')
-    return render_template('login.html', form=form, lista=roomlist)
+    return render_template('index.html', form=form, roomlist=roomlist)
 
-
-@main.route('/registrar', methods=['GET', 'POST'])
+@main.route('/registro', methods=['GET', 'POST'])
 def registrar():
     form = RegistrationForm()
     if request.method == 'GET':
@@ -71,7 +68,8 @@ def registrar():
             print(result)
         finally:
             return render_template('results.html', result=result)
-
+    else:
+        return jsonify({'msg':'method not allowed'})
 
 @main.route('/ingresar', methods=['GET', 'POST'])
 def verificar(dato):
@@ -89,4 +87,4 @@ def chat():
     room = session.get('room', '')
     if name == '' or room == '':
         return redirect(url_for('.index'))
-    return render_template('chat.html', name=name, room=room)
+    return render_template('chat.html', user_list=user_list, roomlist=roomlist)

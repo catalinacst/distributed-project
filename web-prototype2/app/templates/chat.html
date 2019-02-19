@@ -30,13 +30,13 @@
                 });
                 
                 socket.on('show_users', function(data) {
-                    $('#chat').val($('#chat').val() + 'Online : [' + data.msg + ']\n');
+                    $('#chat').val($('#chat').val() + 'Online >>: ' + data.msg + '\n');
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
                 });
 
                 socket.on('show_channels', function(data) {
                     console.log(data)
-                    $('#chat').val($('#chat').val() + 'Canales Disponible : [' + data.msg + ']\n');
+                    $('#chat').val($('#chat').val() + 'Canales Disponibles>> : ' + data.msg + '\n');
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
                 });
 
@@ -44,6 +44,12 @@
                     $('#chat').val($('#chat').val() + data.msg + '\n');
                     $('#chat').scrollTop($('#chat')[0].scrollHeight);
                 });
+
+                socket.on('commands', function(data) {
+                    $('#chat').val($('#chat').val() + data.msg + '\n');
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                });
+
                 socket.on('help', function(data){                    
                 $('#chat').val($('#chat').val() + ':::COMANDOS:::'+'\n');
                 for (let key in data.msg) {
@@ -62,10 +68,9 @@
                     var code = e.keyCode || e.which;
                     if (code == 13) {
                         text = $('#text').val().trim();
-                        console.log('Al ingresar datos de usuario')
                         if(text[0] === '#'){
-                            console.log('Es un comando')
                             socket.emit('cmd', {cmd:text})
+                            $('#text').val('');
                         }
                         else{
                             $('#text').val('');
@@ -105,7 +110,7 @@
                                     <th>Channels</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="list_rooms">
                                 {% for channel in roomlist %}
                                 <tr>
                                     <td>{{ channel }}</td>
@@ -122,13 +127,12 @@
                                 <th>Users Online</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="list_users">
                             {% for user in user_list %}
                             <tr>
                                 <td>{{ user }}</td>
                             </tr>
                             {% endfor %}
-                            
                         </tbody>
                     </table>
                 </div>
@@ -144,7 +148,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </body>
 </html>
